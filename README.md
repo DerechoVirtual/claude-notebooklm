@@ -1,23 +1,30 @@
-# Gemini Notebook MCP — Carlos Rivero · Derecho Virtual
+# Conector Claude NotebookLM — Carlos Rivero · Derecho Virtual
 
-Conector MCP y CLI para manejar **NotebookLM / Gemini Notebook** desde Claude, ChatGPT/Codex, Gemini CLI, Cursor y otras herramientas de IA. Es la versión que usamos en las clases de **IA para Abogados** de [Derecho Virtual](https://academia.derechovirtual.org).
+Conector MCP para manejar **NotebookLM** desde Claude: crear cuadernos, subirles sentencias y documentos, preguntarles y generar resúmenes de audio, vídeo, presentaciones o tarjetas. Es la versión que usamos en las clases de **IA para Abogados** de [Derecho Virtual](https://academia.derechovirtual.org).
 
 ### Instalación para alumnos (Windows, Mac o Linux)
 
 1. Instala `uv` (una sola vez): https://docs.astral.sh/uv/getting-started/installation/
 2. Instala el conector desde este repositorio:
    ```bash
-   uv tool install git+https://github.com/DerechoVirtual/gemini-notebook-mcp
+   uv tool install git+https://github.com/DerechoVirtual/claude-notebooklm
    ```
-3. Inicia sesión con tu cuenta de Google (se abre una ventana de Chrome; entra una vez y queda guardado):
+3. Inicia sesión con tu cuenta de Google:
    ```bash
    nlm login
    ```
-4. Conéctalo a tu herramienta de IA (por ejemplo, Claude Code):
+   Se abre una ventana de Chrome **aparte** (no es tu Chrome de siempre). Inicia sesión **en esa ventana** con la cuenta donde tienes tus cuadernos; se cierra sola cuando termina y queda guardado.
+4. Conéctalo a Claude Code con el nombre «claude-notebooklm»:
    ```bash
-   nlm setup add claude-code
+   claude mcp add claude-notebooklm -s user -- notebooklm-mcp
    ```
-5. Reinicia la herramienta y pídele, por ejemplo: *«Crea un cuaderno en NotebookLM y súbele estas sentencias»*.
+5. Para que cargue bien a la primera, dale más tiempo de arranque: en `~/.claude/settings.json` añade
+   ```json
+   "env": { "MCP_TIMEOUT": "120000" }
+   ```
+6. Cierra y vuelve a abrir Claude y pídele, por ejemplo: *«Crea un cuaderno en NotebookLM llamado Vicios ocultos y súbele estas sentencias»*.
+
+Comprobación rápida: `nlm login --check` te dice con qué cuenta de Google está conectado.
 
 ### Autoría y créditos
 
@@ -27,7 +34,7 @@ Conector MCP y CLI para manejar **NotebookLM / Gemini Notebook** desde Claude, C
 
 ---
 
-## Gemini Notebook (formerly Google NotebookLM) CLI & MCP Server — documentación original
+## Documentación original del autor (en inglés)
 
 ![Gemini Notebook MCP Header](docs/media/header.jpg)
 

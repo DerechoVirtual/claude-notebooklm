@@ -65,8 +65,8 @@ nlm = "notebooklm_tools.cli.main:cli_main"
 notebooklm-mcp = "notebooklm_tools.mcp.server:main"
 
 [project.urls]
-Homepage = "https://github.com/DerechoVirtual/gemini-notebook-mcp"
-Repository = "https://github.com/DerechoVirtual/gemini-notebook-mcp"
+Homepage = "https://github.com/DerechoVirtual/claude-notebooklm"
+Repository = "https://github.com/DerechoVirtual/claude-notebooklm"
 Upstream = "https://github.com/jacob-bd/gemini-notebook-mcp-cli"
 
 [tool.hatch.build.targets.wheel]
